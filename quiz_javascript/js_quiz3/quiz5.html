@@ -90,41 +90,68 @@
     <br />
 
     <script>
-      function drawStars() {
+      let star;
+      function drawStars(lines) {
         // TODO: drawStars() 함수 내부 코드를 채워주세요.
+        for(let i = lines;i > 0 ;i--){
+          star = '*'.repeat(i)
+          console.log(star)
+        }
       }
 
-      function drawStars2() {
+      function drawStars2(lines) {
         // TODO: drawStars2() 함수 내부 코드를 채워주세요.
+        for(let i = 1; i <= lines ;i++){
+          star = ' '.repeat(lines-i)+'*'.repeat(i)
+          console.log(star)
+        }
       }
 
-      function drawStars3() {
+      function drawStars3(lines) {
         // TODO: drawStars3() 함수 내부 코드를 채워주세요.
+        for(let i =1;i <= lines;i++) {
+          star = ' '.repeat(lines-i)+'*'.repeat(i*2-1)
+          console.log(star)
+        }
+
       }
 
-      function drawStars4() {
+      function drawStars4(lines) {
         // TODO: drawStars4() 함수 내부 코드를 채워주세요.
+        for(let i =1; i<=lines;i++){
+          star = ' '.repeat(lines-i)+'*'.repeat(i*2-1)
+          console.log(star)
+        }
+        for(let i =lines-1; i > 0;i--){
+          star = ' '.repeat(lines-i)+'*'.repeat(i*2-1)
+          console.log(star)
+        }
       }
 
-      function drawStars5() {
+      function drawStars5(lines) {
         // TODO: drawStars5() 함수 내부 코드를 채워주세요.
+        for(let i = 1; i <= lines; i++){
+          star = ' '.repeat(lines-i)+'*'.repeat(lines)
+          console.log(star)
+        }
+
       }
 
       // TODO: 해당 html 파일을 실행한 브라우저 콘솔창에서 drawStars ~ drawStars5 함수를 호출해주세요!
-      // drawStars(3);
-      // drawStars(5);
+      drawStars(3);
+      drawStars(5);
 
-      // drawStars2(3);
-      // drawStars2(5);
+      drawStars2(3);
+      drawStars2(5);
 
-      // drawStars3(3);
-      // drawStars3(5);
+      drawStars3(3);
+      drawStars3(5);
 
-      // drawStars4(3);
-      // drawStars4(5);
+      drawStars4(3);
+      drawStars4(5);
 
-      // drawStars5(3);
-      // drawStars5(5);
+      drawStars5(3);
+      drawStars5(5);
     </script>
   </body>
 </html>
