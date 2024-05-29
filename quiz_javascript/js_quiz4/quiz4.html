@@ -54,6 +54,24 @@
 
     <script>
         // TODO: 문제 조건을 만족하는 js 코드 작성
+        let highSpeedCharger = {
+          id : 21,
+          name : "초고속충전기",
+          seller : 'Jane',
+          isStock : true,
+          colors : ['black', 'white', 'skyblue', 'yellow'],
+          order : Math.floor(Math.random()*90)+10
+        }
+
+        console.log(`
+        === 상품 소개 ===  
+        고유 번호 : ${highSpeedCharger.id}
+        상품명 : ${highSpeedCharger.name}
+        판매자 : ${highSpeedCharger.seller}
+        색상 : ${highSpeedCharger.colors[Math.floor(Math.random()*4)]}
+        주문량 : ${highSpeedCharger.order}
+        `)
+
     </script> 
   </body>
 </html>
