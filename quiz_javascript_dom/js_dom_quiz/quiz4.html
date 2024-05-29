@@ -38,6 +38,18 @@
 
     <script>
       // TODO: 문제 조건을 만족하는 js 코드 작성
+      const spanText = document.querySelectorAll("span");
+      
+      // span 태그 스타일 변경
+      spanText.forEach((text, idx )=> {
+        text.style.color = "blueviolet";
+        text.style.fontWeight = "bold";
+      })
+
+      // 배경색상
+      const container = document.querySelector(".container")
+      container.style.backgroundColor = "#eee"
+      container.style.textAlign = "center"
     </script>
   </body>
 </html>
