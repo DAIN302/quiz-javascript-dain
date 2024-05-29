@@ -52,15 +52,27 @@
 </p>
 
     <script>
-        function diceNumber() {
+        function diceNumber(first, second) {
             // TODO: 조건을 만족하는 diceNumber 함수를 완성해주세요.
+            let typeNumFirst = typeof first === "number"
+            let typeNumSecond = typeof second === "number"
+
+            if(typeNumFirst && typeNumSecond) {
+                if((first + second) % 4 ===0) {
+                    console.log('4의 배수')
+                } else {
+                    console.log('4의 배수가 아님')
+                }
+            } else {
+                console.log("Not a Number")
+            }
         }
         
         // TODO: 해당 html 파일을 실행한 브라우저 콘솔창에서 diceNumber 함수를 호출해주세요!
-        // diceNumber(1, 2);
-        // diceNumber(5, 3);
-        // diceNumber('a', '2');
-        // diceNumber(1, '5');
+        diceNumber(1, 2);
+        diceNumber(5, 3);
+        diceNumber('a', '2');
+        diceNumber(1, '5');
     </script>
 </body>
 </html>
