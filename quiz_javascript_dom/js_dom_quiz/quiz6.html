@@ -88,7 +88,6 @@
     <script>
       // TODO: 문제 조건을 만족하는 js 코드 작성
       // (참고) article-box, img-box, text-center 클래스에 대한 스타일시트는 haed > style 태그에 이미 정의되어 있습니다.
-
       const section = document.querySelector('section');
       const icecreams = [
         '내가 아인슈페너?!',
@@ -101,6 +100,16 @@
         '뮤! 넌 내거야',
         '오레오 쿠키 앤 크림',
       ];
+
+      icecreams.forEach((val,idx)=>{
+        section.innerHTML += `
+        <article class="article-box">
+          <img src="./image/icecream${idx+1}.png" class="img-box" alt="${val}">
+          <h3 class="text-center">Top${idx+1}</h3>
+          <div class="text-center">${val}</div>
+        </artcle>
+        `
+      })
     </script>
   </body>
 </html>
