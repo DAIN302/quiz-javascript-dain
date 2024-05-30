@@ -27,6 +27,82 @@
       // - [ ] <li> 태그를 새로 만들고, "아이디 - 댓글내용" 형식이 되도록 설정합니다.
       // - [ ] <ul class="comment-list"> 태그에 li를 추가합니다.
       // - [ ] 아이디 input과 댓글 input을 초기화해야 합니다.
+
+      // 대상요소 잡기
+      const commentForm = document.querySelector("form");
+      const commentId = commentForm.querySelector("#userid");
+      const commentContent = commentForm.querySelector("#comment")
+      const commentList = document.querySelector(".comment-list")
+
+      const COMMENT = "comment";
+      let commentObj = []
+
+      // 폼요소 제출 이벤트
+      commentForm.addEventListener("submit", commentSubmit)
+
+      let savedComment = localStorage.getItem(COMMENT);
+
+      // 폼요소 제출 이벤트 함수
+      function commentSubmit(event){
+        // 이벤트 기본 기능 막기
+        event.preventDefault();
+
+        // 빈값인지 확인
+        if(commentId.value.trim()==""||commentContent.value.trim()=="") {
+          alert("내용을 입력해주세요");
+          return;
+        } 
+        
+        // 로컬스토리지에 댓글내용 저장
+        commentSave(commentId.value, commentContent.value)
+        commentId.value = "";
+        commentContent.value = "";
+        commentId.focus();
+
+        commentWrite()
+      }
+
+
+      // 로컬스토리지 댓글 내용 저장
+      function commentSave(id, content){
+        // 새로운 객체 생성
+        let newCommentObj = {
+            id : id,
+            text : content
+        }
+
+        // 새로 추가된 내용 배열에 추가
+        commentObj.push(newCommentObj)
+        // json형태로 로컬스토리지에 저장
+        commentLocalSave()
+
+      }
+      
+      function commentLocalSave() {
+        localStorage.setItem(COMMENT, JSON.stringify(commentObj))
+      }
+      
+      // li에 댓글내용 입력을 위한 함수
+      function commentWrite(){
+        // 로컬스토리지에 저장된 배열 가져오기
+        let obj = localStorage.getItem(COMMENT);
+        // 배열 -> 객체로 변경
+        obj = JSON.parse(obj)
+        let hcode = '';
+        obj.forEach((val, idx)=> {
+          hcode += `
+            <li>${val.id} - ${val.text}</li>
+          `  
+        })
+        commentList.innerHTML = hcode;
+      }
+
+      // 로컬스토리지에 있던거 화면에 출력하기
+      if(savedComment !== null) {
+        const parsedComment = JSON.parse(savedComment);
+        commentObj = parsedComment;
+        parsedComment.forEach(commentWrite)
+      }
     </script>
   </body>
 </html>
