@@ -58,8 +58,6 @@
         commentId.value = "";
         commentContent.value = "";
         commentId.focus();
-
-        commentWrite()
       }
 
 
@@ -73,6 +71,8 @@
 
         // 새로 추가된 내용 배열에 추가
         commentObj.push(newCommentObj)
+        // .i추가 함수
+        commentWrite(newCommentObj)
         // json형태로 로컬스토리지에 저장
         commentLocalSave()
 
@@ -83,18 +83,10 @@
       }
       
       // li에 댓글내용 입력을 위한 함수
-      function commentWrite(){
-        // 로컬스토리지에 저장된 배열 가져오기
-        let obj = localStorage.getItem(COMMENT);
-        // 배열 -> 객체로 변경
-        obj = JSON.parse(obj)
-        let hcode = '';
-        obj.forEach((val, idx)=> {
-          hcode += `
-            <li>${val.id} - ${val.text}</li>
-          `  
-        })
-        commentList.innerHTML = hcode;
+      function commentWrite(comment){
+          const li = document.createElement("li")
+          li.innerText = `${comment.id} - ${comment.text}`
+          commentList.appendChild(li);
       }
 
       // 로컬스토리지에 있던거 화면에 출력하기
