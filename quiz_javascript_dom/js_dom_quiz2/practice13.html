@@ -16,7 +16,7 @@
       <label for="operator">연산자: </label>
       <input type="text" id="operator" /><br />
       <button type="button" onclick="cal();">계산</button>
-      <button type="button" onclick="reset();">초기화</button><br /><br />
+      <button type="button" onclick="resetInput();">초기화</button><br /><br />
       <label for="result">결과: </label>
       <input type="text" id="result" disabled="true" />
       <!-- 
@@ -28,12 +28,50 @@
     <script>
       // TODO: practice13_설명.png 이미지의 조건을 만족하는 js 코드 작성
       // cal(), reset() 함수를 미리 정의해두었습니다.
+      const value1 = document.querySelector("#value1")
+      const value2 = document.querySelector("#value2")
+      const operator = document.querySelector("#operator")
+      const resultInput = document.querySelector("#result")
 
       // [계산] 버튼 클릭시 cal() 함수가 실행되도록 인라인 방식으로 미리 설정해 두었습니다.
-      function cal() {}
+      function cal() {
+        let operatorValue = operator.value;
+        
+        // 빈값 확인
+        if(value1.value.trim()==""||value2.value.trim()==""||operatorValue.trim()==""){
+          alert("값을 입력해주세요")
+        } 
+        // 사칙연산자 확인
+        else if(operatorValue!="+"&&operatorValue!="-"&&operatorValue!="*"&&operatorValue!="/") {
+          alert("사칙연산 중 하나를 입력해주세요")
+        }
 
+        let firstValue = Number(value1.value)
+        let secondValue = Number(value2.value)
+        
+        let result;
+        switch(operatorValue) {
+          case "+" : result =  firstValue + secondValue;
+          break;
+          case "-" : result = firstValue - secondValue;
+          break;
+          case "/" : result = firstValue / secondValue;
+          break;
+          case "*" : result = firstValue * secondValue;
+          break;
+          default : result= "유효하지 않은 값입니다.";
+        }
+
+        resultInput.value = result;
+      }
+      
       // [초기화] 버튼 클릭시 reset() 함수가 실행되도록 인라인 방식으로 미리 설정해 두었습니다.
-      function reset() {}
+      function resetInput() {
+        value1.value = "";
+        value2.value = "";
+        resultInput.value = "";
+        operator.value = "";
+      }
     </script>
   </body>
 </html>
