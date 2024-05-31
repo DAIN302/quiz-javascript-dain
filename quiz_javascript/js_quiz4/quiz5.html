@@ -66,14 +66,20 @@
         ],
       ]
 
-      const abcIndex = (oneD, twoD, threeD) => alphabets[oneD][twoD][threeD]
+      let abcIndex = alphabets.flat().flat()
+      console.log(abcIndex);
 
-      console.log(abcIndex(1,2,3)+abcIndex(0,1,0)+abcIndex(1,3,0)+abcIndex(0,2,3)+abcIndex(0,3,2)
-      +abcIndex(1,3,3)+abcIndex(1,3,2)+abcIndex(0,3,2)+abcIndex(1,0,1)+abcIndex(0,2,3)+abcIndex(0,0,3))
+      //let abcIndex2 = alphabets.join().split(',');
+      //console.log(abcIndex2)
 
-      console.log(abcIndex(0,1,3)+abcIndex(0,3,2)+abcIndex(0,3,1)+abcIndex(0,1,2)+abcIndex(1,3,3)
-      +abcIndex(0,1,2)+abcIndex(0,2,0)+abcIndex(0,2,3)+abcIndex(1,3,3)
-      +abcIndex(0,0,3)+abcIndex(0,3,2)+abcIndex(0,3,1)+abcIndex(0,1,2))
+      //console.log(abcIndex2.map(x => x.includes('h')))
+
+      function newString(str){
+        const newStrList = [];
+
+      }      
+
+      
     </script>
   </body>
 </html>
