@@ -66,20 +66,21 @@
         ],
       ]
 
-      let abcIndex = alphabets.flat().flat()
+      let abcIndex = alphabets.join().split(',')
       console.log(abcIndex);
-
-      //let abcIndex2 = alphabets.join().split(',');
-      //console.log(abcIndex2)
-
-      //console.log(abcIndex2.map(x => x.includes('h')))
-
-      function newString(str){
-        const newStrList = [];
-
-      }      
-
       
+      const sliceArr = (num1) => {
+        return abcIndex.slice(num1, num1+1).join()
+      }
+
+      const helloWorld = sliceArr(27)+sliceArr(4)+sliceArr(28)+sliceArr(11)+sliceArr(14)
+      +sliceArr(31)+sliceArr(30)+sliceArr(14)+sliceArr(17)+sliceArr(11)+sliceArr(3)
+
+      const myName = sliceArr(26)+sliceArr(0)+sliceArr(8)+sliceArr(13)
+
+      console.log(helloWorld)
+      console.log(myName)
+
     </script>
   </body>
 </html>
